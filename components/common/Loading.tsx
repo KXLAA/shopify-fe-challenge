@@ -1,7 +1,6 @@
 import React from 'react';
-import BallTriangle from 'react-loader-spinner';
 import styled from 'styled-components';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 
 const Container = styled.section`
   display: flex;
@@ -13,12 +12,12 @@ const Container = styled.section`
 export default function Loading() {
   return (
     <Container>
-      <BallTriangle
+      <Loader
         type="BallTriangle"
-        height="100"
-        width="100"
         color="yellow"
-        arialLabel="loading-indicator"
+        height={400}
+        width={400}
+        timeout={5000} // 5 secs
       />
     </Container>
   );
