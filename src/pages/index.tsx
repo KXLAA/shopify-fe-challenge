@@ -7,6 +7,8 @@ import Header, { HeaderLinks, Container } from 'components/common/Header';
 import ErrorEmpty from 'components/common/ErrorEmpty';
 import Layout from 'components/common/Layout';
 import Link from 'next/link';
+import Loading from 'components/common/Loading';
+import Footer from 'components/common/Footer';
 
 export const SPACE_PHOTOS_FOR_HOME = gql`
   query SpacePhotosForHome {
@@ -37,7 +39,7 @@ export default function Home() {
         <title>SPACESTAGRAM 🚀</title>
         <meta
           name="description"
-          content="TypeScript starter for Next.js that includes all you need to build amazing apps"
+          content="Shopify is extending our mission to Make Commerce Better for Everyone to include the whole entire universe. "
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -60,7 +62,7 @@ export default function Home() {
       )}
 
       {loading || networkStatus === NetworkStatus.refetch ? (
-        <p>Loading</p>
+        <Loading />
       ) : (
         <Grid>
           {spacePhotos?.map((spacePhoto) => (
@@ -68,6 +70,7 @@ export default function Home() {
           ))}
         </Grid>
       )}
+      <Footer />
     </Layout>
   );
 }

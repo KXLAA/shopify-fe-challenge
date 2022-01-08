@@ -3,7 +3,7 @@ import { SpacePhoto } from 'components/types/types';
 
 type AppContextType = {
   likedPhotos: SpacePhoto[];
-  setLikedPhotos: React.Dispatch<React.SetStateAction<SpacePhoto[] | []>>;
+  handleLike: (spacePhoto: SpacePhoto) => void;
 };
 
 const AppContext = createContext({} as AppContextType);
@@ -37,9 +37,20 @@ export function AppWrapper({
     }
   }, [likedPhotos]);
 
+  const handleLike = (spacePhoto: SpacePhoto) => {
+    // If photo does not exist in the likes array array, add photo to likes array
+    if (!likedPhotos?.some((photo) => photo.title === spacePhoto.title)) {
+      setLikedPhotos([...likedPhotos, spacePhoto]);
+      // If photo does exist in the likes array array, remove photo from likes array
+    } else if (likedPhotos?.some((photo) => photo.title === spacePhoto.title))
+      setLikedPhotos(
+        likedPhotos.filter((photo) => photo.title !== spacePhoto.title),
+      );
+  };
+
   const sharedState = {
     likedPhotos: likedPhotos,
-    setLikedPhotos: setLikedPhotos,
+    handleLike: handleLike,
   };
   return (
     <AppContext.Provider value={sharedState}>{children}</AppContext.Provider>

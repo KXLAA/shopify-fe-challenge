@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Grid from 'components/common/Grid';
 import Card from 'components/likes/Card';
@@ -17,6 +18,19 @@ function Likes() {
 
   return (
     <Layout>
+      <Head>
+        <title>
+          {`💖 YOU HAVE ${likedPhotos.length} ${
+            likedPhotos.length === 1 ? `LIKE` : `LIKES`
+          } 💖`}
+        </title>
+        <meta
+          name="description"
+          content="Shopify is extending our mission to Make Commerce Better for Everyone to include the whole entire universe."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Header
         title={`YOU HAVE ${likedPhotos.length} ${
           likedPhotos.length === 1 ? `LIKES 💖` : `LIKES 💖`
@@ -26,7 +40,7 @@ function Likes() {
         <Link href="/">BACK HOME 🚀</Link>
       </LikeLink>
 
-      {likedPhotos.length <= 0 ? (
+      {likedPhotos.length < 1 ? (
         <ErrorEmpty
           line01="Your likes are empty 😔"
           line02="✨ Checkout some Space Pics ✨"
