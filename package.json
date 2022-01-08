@@ -28,6 +28,7 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "3.5.6",
     "@graphql-codegen/typescript-resolvers": "2.4.3",
     "apollo-datasource-rest": "3.5.0",
     "apollo-server-micro": "3.6.1",
@@ -36,7 +37,9 @@
     "micro-cors": "0.1.1",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-loader-spinner": "5.0.6",
+    "styled-components": "5.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "16.0.1",
@@ -47,8 +50,10 @@
     "@types/node": "16.11.17",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
+    "@types/styled-components": "5.1.19",
     "@typescript-eslint/eslint-plugin": "5.8.1",
     "@typescript-eslint/parser": "5.8.1",
+    "babel-plugin-styled-components": "2.0.2",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.6.0",
