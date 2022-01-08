@@ -28,6 +28,7 @@ export default function Home() {
     SPACE_PHOTOS_FOR_HOME,
     {
       notifyOnNetworkStatusChange: true,
+      ssr: false,
     },
   );
 
