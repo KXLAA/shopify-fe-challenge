@@ -1,0 +1,16 @@
+overwrite: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+schema:
+  - ./graphql/schema.ts
+generates:
+  ./graphql/types/types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      skipTypename: true

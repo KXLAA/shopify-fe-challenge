@@ -1,9 +1,9 @@
 {
-  "name": "typescript-nextjs-starter",
+  "name": "shopify-frontend-challenge",
   "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
+  "author": "Kola",
   "license": "MIT",
   "keywords": [
     "nextjs",
@@ -18,7 +18,8 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "generate": "graphql-codegen"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -27,6 +28,12 @@
     ]
   },
   "dependencies": {
+    "@graphql-codegen/typescript-resolvers": "2.4.3",
+    "apollo-datasource-rest": "3.5.0",
+    "apollo-server-micro": "3.6.1",
+    "graphql": "16.2.0",
+    "micro": "9.3.4",
+    "micro-cors": "0.1.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -34,6 +41,9 @@
   "devDependencies": {
     "@commitlint/cli": "16.0.1",
     "@commitlint/config-conventional": "16.0.0",
+    "@graphql-codegen/cli": "2.3.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@types/micro-cors": "0.1.2",
     "@types/node": "16.11.17",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
