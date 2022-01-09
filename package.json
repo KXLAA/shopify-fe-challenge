@@ -1,13 +1,11 @@
 {
   "name": "shopify-frontend-challenge",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "description": "Shopify Front End Developer Intern Challenge - Summer 2022",
   "version": "1.0.0",
   "private": true,
   "author": "Kola",
-  "license": "MIT",
   "keywords": [
     "nextjs",
-    "starter",
     "typescript"
   ],
   "scripts": {

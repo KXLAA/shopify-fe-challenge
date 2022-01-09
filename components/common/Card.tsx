@@ -50,7 +50,6 @@ type ButtonProps = {
 
 export const Button = styled.button<ButtonProps>`
   width: 100%;
-  max-width: 100px;
   border: none;
   outline: none;
   background: ${(props) => props.bg || `#202020`};

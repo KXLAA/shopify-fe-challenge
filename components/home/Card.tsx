@@ -2,7 +2,12 @@
 import React, { useState } from 'react';
 import { SpacePhoto } from 'components/types/types';
 import { useAppContext } from 'context/state';
+import styled from 'styled-components';
 import { CardContainer, Button, ButtonContainer } from 'components/common/Card';
+
+const HomeButton = styled(Button)`
+  max-width: 100px;
+`;
 
 type CardProps = {
   spacePhoto: SpacePhoto;
@@ -38,16 +43,16 @@ function Card({ spacePhoto }: CardProps) {
           </p>
 
           <ButtonContainer>
-            <Button
+            <HomeButton
               type="button"
               onClick={() => {
                 setReadMore(!readMore);
               }}
             >
               {readMore ? `see less` : `see more`}
-            </Button>
+            </HomeButton>
 
-            <Button
+            <HomeButton
               type="button"
               onClick={() => handleLike(spacePhoto)}
               bg={likedBg}
@@ -56,7 +61,7 @@ function Card({ spacePhoto }: CardProps) {
               {likedPhotos?.some((photo) => photo.title === spacePhoto.title)
                 ? `liked`
                 : `like`}
-            </Button>
+            </HomeButton>
           </ButtonContainer>
         </>
       ) : (

@@ -39,19 +39,20 @@ function Likes() {
       <Link href="/" passHref>
         <LikeLink>BACK HOME 🚀</LikeLink>
       </Link>
-
-      {likedPhotos.length < 1 ? (
-        <ErrorEmpty
-          line01="Your likes are empty 😔"
-          line02="✨ Checkout some Space Pics ✨"
-        />
-      ) : (
-        <Grid>
-          {likedPhotos.map((spacePhoto) => (
-            <Card key={spacePhoto.title} spacePhoto={spacePhoto} />
-          ))}
-        </Grid>
-      )}
+      <>
+        {likedPhotos.length < 1 ? (
+          <ErrorEmpty
+            line01="Your likes are empty 😔"
+            line02="✨ Checkout some Space Pics ✨"
+          />
+        ) : (
+          <Grid>
+            {likedPhotos.map((spacePhoto) => (
+              <Card key={spacePhoto.title} spacePhoto={spacePhoto} />
+            ))}
+          </Grid>
+        )}
+      </>
     </Layout>
   );
 }

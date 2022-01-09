@@ -3,13 +3,10 @@ import styled from 'styled-components';
 import device from './MediaQueries';
 import Link from 'next/link';
 
-const Container = styled.section`
+const Container = styled.div`
   padding: 1.5rem;
   background-color: #161616;
   border-radius: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  display: flex;
   text-align: center;
 
   p {
@@ -40,7 +37,7 @@ type ErrorProps = {
 function ErrorEmpty({ message, line01, line02 }: ErrorProps) {
   return (
     <Container>
-      <div>
+      <>
         <p>
           {line01} {message}
           {` `}
@@ -48,7 +45,7 @@ function ErrorEmpty({ message, line01, line02 }: ErrorProps) {
         <p>
           <Link href="/">{line02}</Link>
         </p>
-      </div>
+      </>
     </Container>
   );
 }
