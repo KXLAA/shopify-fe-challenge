@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import device from './MediaQueries';
 
 const Container = styled.footer`
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

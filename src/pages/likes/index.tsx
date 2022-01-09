@@ -36,9 +36,9 @@ function Likes() {
           likedPhotos.length === 1 ? `LIKES 💖` : `LIKES 💖`
         } `}
       />
-      <LikeLink>
-        <Link href="/">BACK HOME 🚀</Link>
-      </LikeLink>
+      <Link href="/" passHref>
+        <LikeLink>BACK HOME 🚀</LikeLink>
+      </Link>
 
       {likedPhotos.length < 1 ? (
         <ErrorEmpty

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import device from './MediaQueries';
 
-const LayoutStyled = styled.main`
+const LayoutStyled = styled.div`
   max-width: 1940px;
   margin: 0 auto;
   padding: 4rem;

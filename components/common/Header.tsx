@@ -38,7 +38,7 @@ const Logo = styled.h1`
   }
 `;
 
-export const Container = styled.a`
+export const Nav = styled.nav`
   display: flex;
   gap: 2rem;
   margin-bottom: 1.5rem;
@@ -61,6 +61,15 @@ export const HeaderLinks = styled.a`
   text-align: center;
   transition: all 0.3s ease;
 
+  &:hover {
+    background: yellow;
+    color: #202020;
+    transform: translateX(0rem) translateY(-0.125rem);
+  }
+  &:active:not(:disabled) {
+    transform: translateX(0rem) translateY(0.125rem);
+  }
+
   @media ${device.laptop} {
     font-size: 3.5rem;
   }
@@ -76,11 +85,6 @@ export const HeaderLinks = styled.a`
 
   @media ${device.mobile} {
     font-size: 1.5rem;
-  }
-
-  &:hover {
-    color: yellow;
-    text-decoration: underline;
   }
 `;
 

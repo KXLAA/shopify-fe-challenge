@@ -30,9 +30,9 @@ export const CardContainer = styled.div`
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: solid 1px;
+    transition: all 0.3s ease;
 
     &:hover {
-      transition: all 0.3s ease;
       color: yellow;
     }
   }

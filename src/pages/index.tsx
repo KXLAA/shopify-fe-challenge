@@ -3,7 +3,7 @@ import { useQuery, gql, NetworkStatus } from '@apollo/client';
 import { SpacePhoto } from 'components/types/types';
 import Grid from 'components/common/Grid';
 import Card from 'components/home/Card';
-import Header, { HeaderLinks, Container } from 'components/common/Header';
+import Header, { HeaderLinks, Nav } from 'components/common/Header';
 import ErrorEmpty from 'components/common/ErrorEmpty';
 import Layout from 'components/common/Layout';
 import Link from 'next/link';
@@ -35,7 +35,7 @@ export default function Home() {
   const spacePhotos: SpacePhoto[] = data?.spacePhotosForHome;
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>SPACESTAGRAM 🚀</title>
         <meta
@@ -44,34 +44,45 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Layout>
+        <Header title="SPACESTAGRAM 🚀" />
+        <Nav>
+          <HeaderLinks onClick={() => refetch()}>
+            {` `}✨ MORE PICS ✨
+          </HeaderLinks>
 
-      <Header title="SPACESTAGRAM 🚀" />
+          <Link href="/likes" passHref>
+            <HeaderLinks>💖 LIKES 💖</HeaderLinks>
+          </Link>
+        </Nav>
+        <main>
+          {error && (
+            <ErrorEmpty
+              message={error.message}
+              line01="Oopps 🙊 there is an Error:"
+              line02="Try Again ?"
+            />
+          )}
 
-      <Container>
-        <HeaderLinks onClick={() => refetch()}> ✨ MORE PICS ✨</HeaderLinks>
-        <HeaderLinks>
-          <Link href="/likes">💖 LIKES 💖</Link>
-        </HeaderLinks>
-      </Container>
+          {loading || networkStatus === NetworkStatus.refetch ? (
+            <Loading />
+          ) : (
+            <Grid>
+              {spacePhotos?.map((spacePhoto) => (
+                <Card key={spacePhoto.title} spacePhoto={spacePhoto} />
+              ))}
+            </Grid>
+          )}
 
-      {error && (
-        <ErrorEmpty
-          message={error.message}
-          line01="Oopps 🙊 there is an Error:"
-          line02="Try Again ?"
-        />
-      )}
-
-      {loading || networkStatus === NetworkStatus.refetch ? (
-        <Loading />
-      ) : (
-        <Grid>
-          {spacePhotos?.map((spacePhoto) => (
-            <Card key={spacePhoto.title} spacePhoto={spacePhoto} />
-          ))}
-        </Grid>
-      )}
-      <Footer />
-    </Layout>
+          {loading ||
+            (networkStatus && (
+              <HeaderLinks onClick={() => refetch()}>
+                ✨ MORE PICS ✨
+              </HeaderLinks>
+            ))}
+        </main>
+        <Footer />
+      </Layout>
+    </>
   );
 }

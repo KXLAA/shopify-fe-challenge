@@ -9,6 +9,7 @@ const Container = styled.section`
   padding: 1.5rem;
   background-color: #161616;
   border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
 
   @media ${device.laptopS} {
     grid-template-columns: repeat(2, 1fr);
