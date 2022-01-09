@@ -8,28 +8,32 @@ type AppContextType = {
 
 const AppContext = createContext({} as AppContextType);
 const getLocalStorage = (): SpacePhoto[] | [] => {
-  // Get value from local storage if it exists
   let likes: string | null;
   let likesArray: SpacePhoto[];
 
+  // If we are in the client environment where window is accessible.
   if (typeof window !== `undefined`) {
+    // Get value from local storage if it exists
     likes = localStorage.getItem(`likes`);
     if (likes && typeof likes === `string`) {
       likesArray = JSON.parse(likes);
       return likesArray;
     }
   }
+  // If value does not exists, return an empty array
   return [];
 };
 
 export function AppWrapper({
   children,
 }: React.PropsWithChildren<Record<never, any>>) {
+  // we are getting the initial state value from local storage
   const [likedPhotos, setLikedPhotos] = useState(getLocalStorage());
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
       try {
+        // add photo to local storage when it is liked ie added to the likedPhotos array
         localStorage.setItem(`likes`, JSON.stringify(likedPhotos));
       } catch (error) {
         console.log(error);
