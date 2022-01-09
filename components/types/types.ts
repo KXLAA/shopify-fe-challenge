@@ -4,4 +4,5 @@ export type SpacePhoto = {
   hdurl: string;
   title: string;
   url: string;
+  date: string;
 };

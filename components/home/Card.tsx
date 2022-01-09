@@ -9,6 +9,17 @@ const HomeButton = styled(Button)`
   max-width: 100px;
 `;
 
+const Date = styled.p`
+  font-weight: 700;
+  background: #202020;
+  height: fit-content;
+  padding: none;
+  padding: 0.5rem;
+  text-align: center;
+  max-width: 10rem;
+  border-radius: 0.25rem;
+`;
+
 type CardProps = {
   spacePhoto: SpacePhoto;
 };
@@ -36,6 +47,9 @@ function Card({ spacePhoto }: CardProps) {
 
       {spacePhoto?.explanation.length > 300 ? (
         <>
+          <Date>
+            DATE: {` `} {spacePhoto?.date}
+          </Date>
           <p>
             {spacePhoto?.explanation.slice(0, 300)}
             {readMore ? null : `...`}

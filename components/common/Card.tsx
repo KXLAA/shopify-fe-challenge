@@ -38,7 +38,7 @@ export const CardContainer = styled.div`
   }
 
   p {
-    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     font-size: 0.9375rem;
   }
 `;
