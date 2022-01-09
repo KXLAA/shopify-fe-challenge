@@ -38,7 +38,16 @@ const Footer = () => {
       <p>
         Crafted by{` `}
         <a href="https://www.kxlaa.com/" target="_blank" rel="noreferrer">
-          Kola
+          Kola.
+        </a>
+        {` `}
+        View Code{` `}
+        <a
+          href="https://github.com/KXLAA/shopify-fe-challenge/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Here
         </a>
       </p>
     </Container>
